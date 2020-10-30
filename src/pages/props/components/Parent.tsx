@@ -1,4 +1,5 @@
 import React, { FC, useMemo, useState } from 'react'
+import NameContainer from '../../../components/NameContainer'
 import Child from './Child'
 
 interface Props {
@@ -11,8 +12,7 @@ const Parent: FC<Props> = ({ onQueryCount }) => {
 
   return useMemo(() => {
     return (
-      <div className="module1">
-        <div className="text1">Parent组件：</div>
+      <NameContainer name="Parent组件">
         <div className="mt10">
           <p>
             <button onClick={() => setCount(count + 1)}>当前组件计数 +1</button>
@@ -25,7 +25,7 @@ const Parent: FC<Props> = ({ onQueryCount }) => {
           <p>计数: {count}</p>
         </div>
         <Child count={count} />
-      </div>
+      </NameContainer>
     )
   }, [count, onQueryCount])
 }

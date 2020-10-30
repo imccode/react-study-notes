@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import NameContainer from '../../../components/NameContainer'
 
 interface Props {
   count?: number
@@ -25,8 +26,7 @@ const Child = (props: Props) => {
 
   return useMemo(() => {
     return (
-      <div className="module1">
-        <div className="text1">Child组件：</div>
+      <NameContainer name="Child组件">
         <div className="mt10">
           <p>
             <button onClick={() => setCount(count + 1)}>当前组件计数 +1</button>
@@ -42,7 +42,7 @@ const Child = (props: Props) => {
           <p>初始化承接父组件计数: {initCount}</p>
           {props.onQueryCount && <p>实时承接父组件计数: {asyncMiddleCount}</p>}
         </div>
-      </div>
+      </NameContainer>
     )
   }, [asyncMiddleCount, count, handleClick, initCount, props.onQueryCount])
 }

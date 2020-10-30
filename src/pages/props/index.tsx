@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react'
+import NameContainer from '../../components/NameContainer'
 import Child from './components/Child'
 import Parent from './components/Parent'
 
@@ -10,8 +11,7 @@ const PropsPage = () => {
     return (
       <div>
         <h3 className="header">子父组件通信</h3>
-        <div className="pad5">
-          <div className="text1">页面：</div>
+        <NameContainer name="页面">
           <p>Parent组件传递的计数：{parentCount}</p>
           <div className="mt10">
             <Parent onQueryCount={setParentCount} />
@@ -19,7 +19,7 @@ const PropsPage = () => {
           <div className="mt10">
             <Child count={parentCount} onQueryCount={setParentCount} />
           </div>
-        </div>
+        </NameContainer>
       </div>
     )
   }, [parentCount])
